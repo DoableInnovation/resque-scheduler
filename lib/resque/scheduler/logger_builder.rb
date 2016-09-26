@@ -27,12 +27,14 @@ module Resque
         @verbose = !!opts[:verbose]
         @log_dev = opts[:log_dev] || $stdout
         @format = opts[:format] || 'text'
+        @progname = opts[:progname] || null
       end
 
       # Returns an instance of MonoLogger
       def build
         logger = MonoLogger.new(@log_dev)
         logger.level = level
+        logger.progname = @progname
         logger.formatter = send(:"#{@format}_formatter")
         logger
       end
