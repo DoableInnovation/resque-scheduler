@@ -27,7 +27,7 @@ module Resque
         @verbose = !!opts[:verbose]
         @log_dev = opts[:log_dev] || $stdout
         @format = opts[:format] || 'text'
-        @progname = opts[:progname] || null
+        @progname = opts[:progname] || nil
       end
 
       # Returns an instance of MonoLogger
